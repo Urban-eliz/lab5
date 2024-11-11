@@ -15,7 +15,6 @@ body {
 }
 
 
-
 h1, h2, h3 {
     font-family: 'Tahoma',  'Palatino', serif; 
     color: #333333;
@@ -50,6 +49,52 @@ h1, h2, h3 {
     top: 30%; /* Смещает текст вниз */
     font-size: 20px;
 }
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+
+.about-image img {
+    width: 480px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.about-text {
+    max-width: 450px;
+}
+
+.about-text h2 {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.about-text a {
+    background-color: #b36e68;
+    color: #ffffff;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+
+
+
+
 
 .about-me h2 {
     text-align: center;
@@ -136,42 +181,3 @@ h2 {
 }
 
 
-.about {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 20px;
-}
-
-.about-image img {
-    width: 480px;
-    height: auto;
-    border-radius: 5px;
-}
-
-.about-text {
-    max-width: 450px;
-}
-
-.about-text h2 {
-    text-align: left;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.about-text p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #333333;
-    margin-bottom: 10px;
-}
-
-.about-text a {
-    background-color: #b36e68;
-    color: #ffffff;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 3px;
-    font-size: 14px;
-}
