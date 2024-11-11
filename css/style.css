@@ -24,25 +24,31 @@ h1, h2, h3 {
 
 .shap {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100vh; 
+    width: 100%; 
+}
+
+.shap .img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.shap h1, .shap p {
+    position: absolute;
+    color: rgb(57, 6, 6);
+    text-align: center;
+    width: 100%;
 }
 
 .shap h1 {
-    position: absolute;
-    color: white;
+    top: 10%; /* Смещает заголовок вниз */
     font-size: 45px;
-    text-align: center;
 }
 
 .shap p {
-    position: absolute;
-    color: white;
-    font-size: 15px;
-    text-align: center;
-    top: 65%;
-    transform: translateY(-50%);
+    top: 30%; /* Смещает текст вниз */
+    font-size: 20px;
 }
 
 .about-me h2 {
