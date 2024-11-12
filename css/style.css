@@ -3,23 +3,9 @@ body {
     color: #333333;
     background-color: #cda18d;
     margin: 0;
-    padding: 20px;
+    padding: 0px;
 }
 
-.igrushki, .about-me, .about {
-    background-color: #faf9f7;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 0 auto;
-    max-width: 1200px; 
-}
-
-
-h1, h2, h3 {
-    font-family: 'Tahoma',  'Palatino', serif; 
-    color: #333333;
-    font-weight: 700;
-}
 
 .shap {
     position: relative;
@@ -31,13 +17,15 @@ h1, h2, h3 {
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    opacity: 0.4;
 }
 
 .shap h1, .shap p {
     position: absolute;
-    color: rgb(57, 6, 6);
+    color: rgb(57, 15, 6);
     text-align: center;
     width: 100%;
+    z-index: 2;
 }
 
 .shap h1 {
@@ -45,35 +33,30 @@ h1, h2, h3 {
     font-size: 45px;
 }
 
-.shap p {
-    top: 30%; /* Смещает текст вниз */
-    font-size: 20px;
+.about-image {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }
-
-.about {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 20px;
-}
-
 
 .about-image img {
-    width: 480px;
+    width: 350px;
     height: auto;
-    border-radius: 5px;
+    border-radius: 180px;
 }
+
 
 .about-text {
-    max-width: 450px;
+    position: absolute;
+    max-width: 500px; 
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }
 
-.about-text h2 {
-    text-align: left;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
 
 .about-text p {
     font-size: 14px;
@@ -86,9 +69,10 @@ h1, h2, h3 {
     background-color: #b36e68;
     color: #ffffff;
     padding: 6px 10px;
-    border: none;
     border-radius: 3px;
-    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 
