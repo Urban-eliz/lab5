@@ -6,6 +6,15 @@ body {
     padding: 0px;
 }
 
+h1, h3{
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+      
+}
+
+p, a {
+    font-family: 'Georgia', serif;
+}
+
 
 .shap {
     position: relative;
