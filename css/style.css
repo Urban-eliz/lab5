@@ -112,8 +112,7 @@ p, a {
     width: 20%;
     height: auto;
     top: 815px;
-    left: 650px;
-    transform: translateX(-50%);
+    left: 500px;
     z-index: 2; 
 }
 
