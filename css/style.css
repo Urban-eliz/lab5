@@ -148,6 +148,10 @@ p, a {
 }
 
 .igr {
+    display: flex;
+    flex-direction: column; /* дочерние элементы вертикально */
+    justify-content: space-between; /* распределяет пространство между элементами */
+    align-items: center;
     background-color: #f5d3d3;
     padding: 15px;
     width: 300px;
@@ -170,7 +174,12 @@ p, a {
     font-weight: bold;
 }
 
+.igr p:nth-of-type(2) {
+    font-weight: normal;
+}
+
 .igr button {
+    width: 120px;
     background-color: #c0857f;
     color: #ffffff;
     padding: 8px 16px;
@@ -179,8 +188,10 @@ p, a {
     cursor: pointer; /* меняется курсор при наведении */
     font-size: 14px;
     transition: background-color 0.3s;
+    margin-top: auto;
 }
 
 .igr button:hover {
     background-color: #b36e68;
+    
 }
