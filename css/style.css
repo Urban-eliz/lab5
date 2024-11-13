@@ -121,14 +121,14 @@ p, a {
     width: 40%;
     margin: 0 auto;
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* нижний отступ в 10 пикселей */
     color: #352929;
-    font-size: 14px;
-    line-height: 1.6;  
+    font-size: 14px; /* размер шрифта */
+    line-height: 1.6;  /* высота строки */
 }
 .about-me h2 {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: bold;  /* шрифт жирный */
     text-align: center;
     margin-bottom: 20px;
     color: #333333;
@@ -137,14 +137,14 @@ p, a {
 
 .igrushki {
     text-align: center;
-    padding: 20px;
+    padding: 20px; /* внутренний отступ */
 }
 
 .items {
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap; 
+    justify-content: center;  /* элементы по центру контейнера */
+    gap: 40px; /* промежуток между элементами */
+    flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку, если они не умещаются */
 }
 
 .igr {
@@ -153,7 +153,7 @@ p, a {
     width: 300px;
     text-align: center;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* тень */
 }
 
 .igr img {
@@ -174,11 +174,10 @@ p, a {
     background-color: #c0857f;
     color: #ffffff;
     padding: 8px 16px;
-    border: none;
+    border: none; /* убирает границу кнопки */
     border-radius: 3px;
-    cursor: pointer;
+    cursor: pointer; /* меняется курсор при наведении */
     font-size: 14px;
-    text-transform: uppercase;
     transition: background-color 0.3s;
 }
 
