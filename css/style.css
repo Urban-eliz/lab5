@@ -6,13 +6,15 @@ body {
     padding: 0px;
 }
 
-h1, h3{
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-      
+h1, h3, h2{
+    font-family: 'Comic Sans MS', cursive, sans-serif;  
+    color: rgb(28, 8, 3);
+        
 }
 
 p, a {
     font-family: 'Georgia', serif;
+    color: #290606;
 }
 
 
@@ -31,14 +33,13 @@ p, a {
 
 .shap h1, .shap p {
     position: absolute;
-    color: rgb(57, 15, 6);
     text-align: center;
     width: 100%;
     z-index: 2;
 }
 
 .shap h1 {
-    top: 10%; /* Смещает заголовок вниз */
+    top: 10%; 
     font-size: 45px;
 }
 
@@ -54,7 +55,7 @@ p, a {
     width: 350px;
     height: auto;
     border-radius: 180px;
-    box-shadow: 0 4px 8px rgba(26, 3, 3, 0.2);;
+    box-shadow: 0 4px 8px rgba(26, 3, 3, 0.2);
 }
 
 
@@ -68,7 +69,7 @@ p, a {
     text-align:justify;
 }
 
-.about-text h2 {
+.about-text h3 {
     font-size: 24px;
     margin-bottom: 15px;
 }
@@ -76,7 +77,6 @@ p, a {
 .about-text p {
     font-size: 16px;
     line-height: 1.6;
-    color: #290606;
     margin-bottom: 10px;
 }
 
@@ -93,4 +93,96 @@ p, a {
 
 .about-text a:hover {
     background-color: #9f524b;
+}
+
+
+.about-me {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    top: 0px;
+    left: 700px;
+    text-align: center;
+    z-index: 1;
+}
+
+.photo-me img{
+    position: absolute;
+    width: 20%;
+    height: auto;
+    top: 815px;
+    left: 650px;
+    transform: translateX(-50%);
+    z-index: 2; 
+}
+
+
+.about-me p {
+    width: 40%;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 10px;
+    color: #352929;
+    font-size: 14px;
+    line-height: 1.6;  
+}
+.about-me h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+
+.igrushki {
+    text-align: center;
+    padding: 20px;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; 
+}
+
+.igr {
+    background-color: #f5d3d3;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.igr img {
+    width:300px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.igr p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.igr button {
+    background-color: #c0857f;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.igr button:hover {
+    background-color: #b36e68;
 }
