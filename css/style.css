@@ -4,7 +4,6 @@ body {
     background-color: #cda18d;
     margin: 0;
     padding: 0px;
-    flex-wrap: wrap;
 }
 
 h1, h3, h2{
@@ -100,38 +99,44 @@ p, a {
     background-color: #9f524b;
 }
 
+.skat{
+    display: flex;
+    position: relative;
+    text-align: center;
+    flex-direction: column;
+}
 
 .about-me {
+    display: flex;
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 29em;
+    height: 29em;
     background-color: white;
-    top: 0px;
-    left: 700px;
-    text-align: center;
+    align-items: center;
     z-index: 1;
+    top: 20%;
+    left: 43%;
 }
 
 .photo-me img{
     position: absolute;
-    width: 20%;
+    top: 22%;
+    left: 30%;
+    width: 23em;
     height: auto;
-    top: 815px;
-    left: 500px;
     z-index: 2; 
 }
 
-
 .about-me p {
-    width: 40%;
+    width: 45%;
     margin: 0 auto;
-    text-align: left;
     margin-bottom: 10px; /* нижний отступ в 10 пикселей */
     color: #352929;
-    font-size: 14px; /* размер шрифта */
+    font-size: 18px; /* размер шрифта */
     line-height: 1.6;  /* высота строки */
+    text-align: justify;
 }
-.about-me h2 {
+.skat h2 {
     font-size: 24px;
     font-weight: bold;  /* шрифт жирный */
     text-align: center;
@@ -201,9 +206,4 @@ p, a {
     
 }
 
-/* адаптивность */
-@media (max-width: 768px) {
-    .lesson-options {
-      flex: 0 0 100%;
-    }
-  }
+
