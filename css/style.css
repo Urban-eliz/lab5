@@ -62,7 +62,9 @@ p, a {
 
 .about-text {
     position: absolute;
-    max-width: 40%; 
+    width: 50%;
+    max-width: 500px; 
+    min-width: 100px; 
     top: 50%;
     left: 35%;
     transform: translate(-50%, -50%);
@@ -83,7 +85,9 @@ p, a {
 
 .about-text a {
     width: 100%;
+    min-width: 100px;
     max-width: 585px;
+   
     font-size: 40px;
     text-align: center;
     background-color: #b36e68;
@@ -98,6 +102,16 @@ p, a {
 
 .about-text a:hover {
     background-color: #9f524b;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .shap h1 {
+        font-size: 6vw; 
+    }
+    
+
+   
 }
 
 .skat{
@@ -130,12 +144,13 @@ p, a {
 
 .about-me p {
     width: 45%;
-    margin: 0 auto;
+    
     margin-bottom: 10px; /* нижний отступ в 10 пикселей */
     color: #352929;
     font-size: 18px; /* размер шрифта */
     line-height: 1.6;  /* высота строки */
     text-align: justify;
+    margin-left: 200px;
 }
 .skat h2 {
     font-size: 24px;
@@ -205,6 +220,12 @@ p, a {
 .igr button:hover {
     background-color: #b36e68;
     
+}
+
+@media (max-width: 700px) {
+    .shap h1{
+        font-size: 2vw;
+    }
 }
 
 
