@@ -54,7 +54,7 @@ p, a {
 
 .about-image img {
     width: 35vw;
-    max-width: 400px;
+    max-width: 380px;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(26, 3, 3, 0.2);
 }
@@ -78,8 +78,8 @@ p, a {
 }
 
 .about-text p {
-    font-size: 1.1vw;
-    line-height: 1.6;
+    font-size: 1.4vw;
+    line-height: 1;
     margin-bottom: 1rem;
 }
 
@@ -109,9 +109,7 @@ p, a {
     .shap h1 {
         font-size: 6vw; 
     }
-    
-
-   
+       
 }
 
 .skat{
@@ -120,6 +118,8 @@ p, a {
     text-align: center;
     flex-direction: column;
 }
+
+
 
 .about-me {
     display: flex;
