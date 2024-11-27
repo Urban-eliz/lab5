@@ -273,15 +273,19 @@ p, a {
   /* заголовки карточек */
   .tech-title {
     font-size: 1.5em;
-    color: #312f2f;
+    color: #3c2626;
     margin-bottom: 10px;
   }
   
   /* текст на карточках */
   .tech-description {
+    background-color: rgb(254, 254, 254);
     font-size: 1em;
-    color: #ffffff;
+    color: #3c2626;
     line-height: 1.4;
+    padding: 20px;
+    border-radius: 8px;
+
   }
   
   /* Адаптивность */
