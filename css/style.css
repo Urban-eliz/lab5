@@ -144,7 +144,6 @@ p, a {
 
 .about-me p {
     width: 45%;
-    
     margin-bottom: 10px; /* нижний отступ в 10 пикселей */
     color: #352929;
     font-size: 18px; /* размер шрифта */
@@ -229,3 +228,71 @@ p, a {
 }
 
 
+.technologies {
+    background-color: #f5d3d3;
+    padding: 50px 20px;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2em;
+    color: #333333;
+    margin-bottom: 40px;
+  }
+  
+  /* Сетка карточек */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три столбца в первом ряду */
+    gap: 40px;
+    max-width: 1050px;
+    margin: 0 auto;
+  }
+  
+  .tech-card {
+    background-color: #cda18d;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  /*картинки в грид*/
+  .tech-icon {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+  
+  /* заголовки карточек */
+  .tech-title {
+    font-size: 1.5em;
+    color: #312f2f;
+    margin-bottom: 10px;
+  }
+  
+  /* текст на карточках */
+  .tech-description {
+    font-size: 1em;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr); /* Два столбца на планшетах */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tech-grid {
+      grid-template-columns: 1fr; /* Один столбец на мобильных */
+    }
+  }
