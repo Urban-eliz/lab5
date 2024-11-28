@@ -9,7 +9,7 @@ body {
 
 h1, h3, h2{
     font-family: 'Comic Sans MS', cursive, sans-serif;  
-    color: rgb(104, 31, 31);
+    color: rgb(85, 28, 28);
         
 }
 
@@ -119,8 +119,6 @@ p, a {
     flex-direction: column;
 }
 
-
-
 .about-me {
     display: flex;
     position: relative;
@@ -152,7 +150,7 @@ p, a {
     margin-left: 200px;
 }
 .skat h2 {
-    font-size: 24px;
+    font-size: 2em;
     font-weight: bold;  /* шрифт жирный */
     text-align: center;
     margin-bottom: 20px;
@@ -163,6 +161,10 @@ p, a {
 .igrushki {
     text-align: center;
     padding: 20px; /* внутренний отступ */
+}
+.igrushki h2{
+    font-size: 2.5em;
+    color: #333333;
 }
 
 .items {
@@ -229,13 +231,16 @@ p, a {
 
 
 .technologies {
-    background-color: #f5d3d3;
+   background-color: #f5d3d3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 50px 20px;
   }
   
   .section-title {
     text-align: center;
-    font-size: 2em;
+    font-size: 2.5em;
     color: #333333;
     margin-bottom: 40px;
   }
@@ -279,12 +284,13 @@ p, a {
   
   /* текст на карточках */
   .tech-description {
-    background-color: rgb(254, 254, 254);
+    background-color: #d2a691;
     font-size: 1em;
     color: #3c2626;
     line-height: 1.4;
     padding: 20px;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   }
   
