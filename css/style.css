@@ -1,161 +1,340 @@
+
 body {
     font-family: 'Helvetica', Arial, sans-serif;
     color: #333333;
     background-color: #cda18d;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-h1, h3, h2{
+h1, h3, h2 {
     font-family: 'Comic Sans MS', cursive, sans-serif;  
     color: rgb(85, 28, 28);
-        
 }
 
 p, a {
     font-family: 'Georgia', serif;
     color: #290606;
+    margin: 0;
 }
 
-
+/* Шапка */
 .shap {
     position: relative;
-    height: 100vh; 
-    width: 100%; 
-}
-
-.shap .img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    opacity: 0.4;
-}
-
-.shap h1, .shap p {
-    position: absolute;
-    text-align: center;
+    height: 100vh;
     width: 100%;
-    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    
+}
+
+.shap-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.shap-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+    /* text-align: justify; */
 }
 
 .shap h1 {
-    top: 5%; 
-    font-size: 4vw;
-}
-
-.about-image {
-    position: absolute;
-    top: 50%;
-    left: 75%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-}
-
-.about-image img {
-    width: 35vw;
-    max-width: 380px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(26, 3, 3, 0.2);
-}
-
-
-.about-text {
-    position: absolute;
-    width: 50%;
-    max-width: 500px; 
-    min-width: 100px; 
-    top: 50%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    text-align:justify;
-}
-
-.about-text h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.about-text p {
-    font-size: 1.4vw;
-    line-height: 1;
-    margin-bottom: 1rem;
-}
-
-.about-text a {
-    width: 100%;
-    min-width: 100px;
-    max-width: 585px;
-   
-    font-size: 40px;
+    font-size: 4.1vw;
     text-align: center;
-    background-color: #b36e68;
-    color: #ffffff;
-    padding: 6px 10px;
-    border-radius: 3px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
+    z-index: 2;
+    padding: 0.5em 0; /* Отступы сверху и снизу равны 20px, слева и справа 0 */
+    margin: 0; /* Убираем стандартные внешние отступы */
 
 }
 
-.about-text a:hover {
+.shap-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+    width: 100%;
+    max-width: 1100px;
+    z-index: 2;
+    padding: 0 20px; /* */
+}
+
+.shap-text {
+    flex: 2;
+    max-width: 90%;
+    margin: 0 auto; /* Центрирование текста */
+    line-height: 1.6; /* расстояние между строками */
+    font-size: 1rem; /* Базовый размер текста */
+    word-wrap: break-word; /* Перенос слов на новую строку при необходимости */
+}
+
+.shap-text p {
+    font-size: 1.4rem;
+    line-height: 1;
+    margin-bottom: 25px;
+    text-align: justify;
+    
+}
+
+.shap-btn {
+    display: inline-block;
+    font-size: 2.5rem;
+    background-color: #b36e68;
+    color: white;
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 750px;    
+    text-align: center;  
+    transition: background-color 0.3s ease;
+        
+}
+
+.shap-btn:hover {
     background-color: #9f524b;
 }
 
-/* Медиа-запросы для мобильных устройств */
+.shap-image {
+    flex: 1;
+    text-align: center;
+    
+}
+
+.shap-image img {
+    max-width: 100%;
+    height: auto; 
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .shap-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .shap-image img {
+        max-width: 60%;
+    }
+
+    .shap h1 {
+        font-size: 7vw;
+        margin-bottom: 15px;/* */
+    }
+
+    .shap-text p {
+        font-size: 1rem;
+    }
+
+    .shap-text .shap-btn {
+        max-width: 80%;
+    }
+}
+
 @media (max-width: 768px) {
     .shap h1 {
-        font-size: 6vw; 
+        font-size: 6vw;
+        padding: 0.5em 0;
     }
-       
+    .shap-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .shap-text {
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .shap-image img {
+        max-width: 80%;
+    }
+
+    .shap-btn {
+        width: 100%;
+        max-width: none;
+    }
 }
 
-.skat{
+@media (max-width: 480px) {
+    .shap h1 {
+        font-size: 5vw;
+        margin-bottom: 5px;/* */
+    }
+
+    .shap-text p {
+        font-size: 1rem;
+    }
+
+    .shap-btn {
+        font-size: 2em;
+        padding: 10px 15px;
+    }
+    .shap-image {
+        flex: 1;
+        text-align: center;
+        width: 300px;
+    }
+}
+
+
+
+
+.skat {
     display: flex;
-    position: relative;
-    text-align: center;
     flex-direction: column;
-}
-
-.about-me {
-    display: flex;
-    position: relative;
-    width: 29em;
-    height: 29em;
-    background-color: white;
     align-items: center;
-    z-index: 1;
-    top: 20%;
-    left: 43%;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.photo-me img{
-    position: absolute;
-    top: 22%;
-    left: 30%;
-    width: 23em;
+/* Заголовок */
+.skat h2 {
+    font-size: 3rem;
+    margin-bottom: 25px 0;
+    color: #352929;
+    text-align: center;
+    width: 100%;
+}
+
+/* Контейнер биографии */
+.biogr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: row; /* Горизонтальное расположение для десктопа */
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Фото */
+.photo-me {
+    flex: 0 0 auto; /* Фиксированная ширина фото */
+    max-width: 350px; 
+    position: relative;
+    z-index: 2;
+}
+
+.photo-me img {
+    width: 100%;
     height: auto;
-    z-index: 2; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Текстовый блок */
+.about-me {
+    background-color: white;
+    padding: 20px;
+    flex: 1; /* Текст занимает оставшееся пространство */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    max-width: 350px; /* Ширина текстового блока */
+    position: relative;
+    z-index: 1;
+    min-height: 350px; /* Устанавливаем минимальную высоту текста больше высоты фото */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .about-me p {
-    width: 45%;
-    margin-bottom: 10px; /* нижний отступ в 10 пикселей */
+    font-size: 1.2rem;
+    line-height: 1.6;
     color: #352929;
-    font-size: 18px; /* размер шрифта */
-    line-height: 1.6;  /* высота строки */
-    text-align: justify;
-    margin-left: 200px;
+    margin-left: 60px;
+    margin-right: 10px;
 }
-.skat h2 {
-    font-size: 2em;
-    font-weight: bold;  /* шрифт жирный */
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333333;
+
+/* Смещение фото поверх текста */
+.photo-me {
+    margin-right: -70px; /* Фото немного заходит на текст */
 }
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .biogr {
+        flex-direction: column; /* Переход на вертикальное расположение */
+    }
+
+    .photo-me {
+        margin-right: 0; /* Убираем перекрытие */
+        margin-bottom: 20px; /* Отступ между фото и текстом */
+    }
+
+    .photo-me img {
+        max-width: 80%; /* Уменьшаем фото */
+    }
+
+    .about-me {
+        max-width: 90%;
+    }
+
+    .about-me p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .biogr {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo-me img {
+        max-width: 100%;
+    }
+
+    .about-me {
+        max-width: 90%;
+    }
+
+    .about-me p {
+        font-size: 0.9rem;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+/* Для маленьких экранов */
+@media (max-width: 480px) {
+    .skat h2{
+        font-size: 1.3em;
+    }
+
+    .photo-me img {
+        max-width: 100%;
+    }
+
+    .about-me p {
+        font-size: 0.85rem;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+
+
 
 
 .igrushki {
@@ -163,15 +342,19 @@ p, a {
     padding: 20px; /* внутренний отступ */
 }
 .igrushki h2{
-    font-size: 2.5em;
+    font-size: 3rem;
     color: #333333;
+    margin-bottom: 20px;
 }
 
 .items {
     display: flex;
     justify-content: center;  /* элементы по центру контейнера */
-    gap: 40px; /* промежуток между элементами */
-    flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку, если они не умещаются */
+    gap: 30px; /* Уменьшаем промежуток между элементами */
+    flex-wrap: wrap; /* Элементы будут переноситься на следующую строку, если не помещаются */
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 20px; /* Отступы */
 }
 
 .igr {
@@ -188,14 +371,15 @@ p, a {
 }
 
 .igr img {
-    width:300px;
+    width: 100%; 
+    max-width: 300px; /* Максимальная ширина для картинок */
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
 .igr p {
-    font-size: 16px;
+    font-size: 20px;
     margin: 10px 0;
     color: #442a18;
     font-weight: bold;
@@ -206,14 +390,15 @@ p, a {
 }
 
 .igr button {
-    width: 300px;
+    width: 100%; /* Кнопка по ширине карточки */
+    max-width: 300px; /* Ограничиваем ширину кнопки */
     background-color: #c0857f;
     color: #ffffff;
     padding: 8px 16px;
     border: none; /* убирает границу кнопки */
     border-radius: 3px;
     cursor: pointer; /* меняется курсор при наведении */
-    font-size: 14px;
+    font-size: 16px;
     transition: background-color 0.3s;
     margin-top: auto;
 }
@@ -223,23 +408,74 @@ p, a {
     
 }
 
-@media (max-width: 700px) {
-    .shap h1{
-        font-size: 2vw;
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .igrushki h2 {
+        font-size: 2rem; 
+    }
+
+    .items {
+        gap: 20px; 
+    }
+
+    .igr {
+        width: 220px; /* меньш ширину карт */
+    }
+
+    .igr img {
+        max-width: 220px; /* меньш размер изобр */
     }
 }
 
+@media (max-width: 768px) {
+    .items {
+        gap: 15px; 
+    }
+
+    .igr {
+        width: 220px; /* меньш ширину карточек для моб*/
+    }
+
+    .igr img {
+        max-width: 220px; /* меньш размер карт */
+    }
+}
+
+@media (max-width: 480px) {
+    .igrushki h2{
+        font-size: 1.3em;
+    }
+    .items {
+        gap: 10px; 
+    }
+
+    .igr {
+        width: 200px; /* мень размер карт */
+    }
+
+    .igr img {
+        max-width: 200px; /* мен изобр */
+    }
+
+    .igr button {
+        font-size: 14px; /* мень размер текста на кнопке */
+        padding: 6px 12px;
+    }
+}
 
 .technologies {
     background-color: #f5d3d3;
     padding: 50px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
   }
   
   .section-title {
     text-align: center;
-    font-size: 2.5em;
+    font-size: 3rem;
     color: #333333;
-    margin-bottom: 40px;
+    margin: 40px 0;
   }
   
   /* Сетка карточек */
@@ -247,15 +483,17 @@ p, a {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Три столбца в первом ряду */
     gap: 40px;
-    max-width: 1050px;
+    max-width: 1200px;  
     margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
   
   .tech-card {
     background-color: #cda18d;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -266,17 +504,19 @@ p, a {
   }
   /*картинки в грид*/
   .tech-icon {
-    width: 280px;
-    height: 280px;
-    margin-bottom: 15px;
+    width: 300px;
+    height: 300px;
     border-radius: 8px;
+    padding: 10px;
   }
   
   /* заголовки карточек */
   .tech-title {
     font-size: 1.5em;
     color: #3c2626;
-    margin-bottom: 10px;
+    margin: 10px 0 20px 0; /* Отступы: сверху 20px, снизу 10px */
+    text-align: center; 
+    line-height: 1.2;
   }
   
   /* текст на карточках */
@@ -285,21 +525,42 @@ p, a {
     font-size: 1em;
     color: #3c2626;
     line-height: 1.4;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 
   }
   
   /* Адаптивность */
-  @media (max-width: 768px) {
+@media (max-width: 1024px) {
     .tech-grid {
-      grid-template-columns: repeat(2, 1fr); /* Два столбца на планшетах */
+        grid-template-columns: repeat(2, 1fr); 
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.3em;
+    }
     .tech-grid {
-      grid-template-columns: 1fr; /* Один столбец на мобильных */
+        grid-template-columns: 1fr; 
     }
-  }
+
+    .tech-card {
+        padding: 15px;  
+    }
+
+    .tech-icon {
+        width: 200px; /* меньш размер иконок */
+        height: 200px;
+    }
+
+    .tech-title {
+        font-size: 1.2rem; /* еньш размер заголовка на моб */
+    }
+
+    .tech-description {
+        font-size: 0.9rem; /* еньш размер текста на моб */
+    }
+}
