@@ -11,6 +11,8 @@ body {
 h1, h3, h2 {
     font-family: 'Comic Sans MS', cursive, sans-serif;  
     color: rgb(85, 28, 28);
+    margin-top: 0px; /* Расстояние сверху */
+    margin-bottom: 20px; /* Расстояние снизу */
 }
 
 p, a {
@@ -31,7 +33,7 @@ p, a {
     box-sizing: border-box;
     overflow: hidden;
     text-align: center;
-    
+    padding: 0 15px;
 }
 
 .shap-bg {
@@ -58,20 +60,25 @@ p, a {
     font-size: 4.1vw;
     text-align: center;
     z-index: 2;
-    padding: 0.5em 0; /* Отступы сверху и снизу равны 20px, слева и справа 0 */
-    margin: 0; /* Убираем стандартные внешние отступы */
-
+    
+    margin: 0 auto; /* Центрирование */
+    max-width: 90%; /* Ограничение ширины */
+    word-wrap: break-word; /* Перенос длинных слов */
+    overflow-wrap: break-word; /* Альтернативный перенос */
+    line-height: 1.2;
 }
 
 .shap-content {
     display: flex;
+    /* flex-direction: column;  */
     align-items: center;
-    justify-content: space-between;
-    gap: 45px;
+    /* justify-content: space-between; */
+    gap: 20px;
     width: 100%;
     max-width: 1100px;
+    
+    /* box-sizing: border-box;  */
     z-index: 2;
-    padding: 0 20px; /* */
 }
 
 .shap-text {
@@ -81,12 +88,13 @@ p, a {
     line-height: 1.6; /* расстояние между строками */
     font-size: 1rem; /* Базовый размер текста */
     word-wrap: break-word; /* Перенос слов на новую строку при необходимости */
+    padding: 50px 50px;
 }
 
 .shap-text p {
     font-size: 1.4rem;
     line-height: 1;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: justify;
     
 }
@@ -121,62 +129,19 @@ p, a {
     height: auto; 
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 1024px) {
-    .shap-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .shap-image img {
-        max-width: 60%;
-    }
-
-    .shap h1 {
-        font-size: 7vw;
-        margin-bottom: 15px;/* */
-    }
-
-    .shap-text p {
-        font-size: 1rem;
-    }
-
-    .shap-text .shap-btn {
-        max-width: 80%;
-    }
-}
-
-@media (max-width: 768px) {
-    .shap h1 {
-        font-size: 6vw;
-        padding: 0.5em 0;
-    }
-    .shap-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .shap-text {
-        width: 100%;
-        text-align: center;
-        padding-right: 0;
-    }
-
-    .shap-image img {
-        max-width: 80%;
-    }
-
-    .shap-btn {
-        width: 100%;
-        max-width: none;
-    }
+    display: block;
+    margin: 0 auto;
 }
 
 @media (max-width: 480px) {
+    .shap-text {
+        padding: 0px 0px;
+    }
+
     .shap h1 {
-        font-size: 5vw;
-        margin-bottom: 5px;/* */
+        font-size: 8vw;
+        margin: 0 auto;
+        
     }
 
     .shap-text p {
@@ -190,10 +155,72 @@ p, a {
     .shap-image {
         flex: 1;
         text-align: center;
-        width: 300px;
+        
+    }
+
+    .shap-image img {
+        display: none;
+        /* max-width: 70%; */
     }
 }
 
+@media (max-width: 768px) {
+    .shap-text {
+        padding: 0px 0px;
+    }
+
+    .shap h1 {
+        font-size: 6vw;
+    }
+    .shap-content {
+        flex-direction: column;
+    }
+
+    .shap-text {
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .shap-image img {
+        display: none;
+        /* max-width: 80%; */
+    }
+
+    .shap-btn {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .shap-text {
+        padding: 0px 0px;
+    }
+    
+    .shap-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .shap-image img {
+        display: none;
+        /* max-width: 30%; */
+    }
+
+    .shap h1 {
+        font-size: 5vw;
+        margin-bottom: 15px;/* */
+    }
+
+    .shap-text p {
+        font-size: 1rem;
+    }
+
+    .shap-text .shap-btn {
+        max-width: 80%;
+    }
+}
 
 
 
@@ -202,7 +229,7 @@ p, a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 20px 20px;
     text-align: center;
 }
 
@@ -233,6 +260,7 @@ p, a {
     max-width: 350px; 
     position: relative;
     z-index: 2;
+    width: 100%;
 }
 
 .photo-me img {
@@ -271,28 +299,22 @@ p, a {
 }
 
 /* Адаптивность */
-@media (max-width: 1024px) {
-    .biogr {
-        flex-direction: column; /* Переход на вертикальное расположение */
-    }
 
-    .photo-me {
-        margin-right: 0; /* Убираем перекрытие */
-        margin-bottom: 20px; /* Отступ между фото и текстом */
+/* Для маленьких экранов */
+@media (max-width: 480px) {
+    .skat h2{
+        font-size: 9vw;
     }
 
     .photo-me img {
-        max-width: 80%; /* Уменьшаем фото */
-    }
-
-    .about-me {
-        max-width: 90%;
+        max-width: 100%;
     }
 
     .about-me p {
-        font-size: 0.95rem;
+        font-size: 1.8rem;
     }
 }
+
 
 /* Мобильные устройства */
 @media (max-width: 768px) {
@@ -306,40 +328,44 @@ p, a {
     }
 
     .about-me {
-        max-width: 90%;
-    }
-
-    .about-me p {
-        font-size: 0.9rem;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-}
-
-/* Для маленьких экранов */
-@media (max-width: 480px) {
-    .skat h2{
-        font-size: 1.3em;
-    }
-
-    .photo-me img {
         max-width: 100%;
     }
 
     .about-me p {
-        font-size: 0.85rem;
-        margin-left: 0px;
-        margin-right: 0px;
+        font-size: 2.5rem;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .biogr {
+        flex-direction: column; /* Переход на вертикальное расположение */
+    }
+
+    .photo-me {
+        margin-right: 0; /* Убираем перекрытие */
+        margin-bottom: 20px; /* Отступ между фото и текстом */
+    }
+
+    .photo-me img {
+        max-width: 100%; /* Уменьшаем фото */
+    }
+
+    .about-me {
+        max-width: 90%;
+    }
+
+    .about-me p {
+        font-size: 0.95rem;
     }
 }
 
 
-
-
-
 .igrushki {
+    display: inline;
     text-align: center;
-    padding: 20px; /* внутренний отступ */
+    padding: 0px 50px 20px 20px;
 }
 .igrushki h2{
     font-size: 3rem;
@@ -349,12 +375,11 @@ p, a {
 
 .items {
     display: flex;
-    justify-content: center;  /* элементы по центру контейнера */
-    gap: 30px; /* Уменьшаем промежуток между элементами */
     flex-wrap: wrap; /* Элементы будут переноситься на следующую строку, если не помещаются */
-    max-width: 1050px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 0 20px; /* Отступы */
+    justify-content: space-around;
 }
 
 .igr {
@@ -364,7 +389,7 @@ p, a {
     align-items: center;
     background-color: #f5d3d3;
     padding: 15px;
-    width: 300px;
+    width: 330px;
     text-align: center;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* тень */
@@ -408,28 +433,47 @@ p, a {
     
 }
 
+
 /* Адаптивность */
-@media (max-width: 1024px) {
-    .igrushki h2 {
-        font-size: 2rem; 
-    }
 
+@media (max-width: 480px) {
     .items {
-        gap: 20px; 
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-direction: row; /* Горизонтальное расположение для десктопа */
+        max-width: 1200px;
+        width: 100%;
+        gap: 20px;
+        margin: 0;
+        padding: 0; /* Отступы */
     }
 
-    .igr {
-        width: 220px; /* меньш ширину карт */
+            
+    .igrushki h2{
+        font-size: 1.3em;
     }
+        
 
     .igr img {
-        max-width: 220px; /* меньш размер изобр */
+        max-width: 200px; /* мен изобр */
     }
+
+    .igr button {
+        font-size: 14px; /* мень размер текста на кнопке */
+        padding: 6px 12px;
+    }
+
+
 }
 
 @media (max-width: 768px) {
     .items {
-        gap: 15px; 
+        position: relative;
+        flex-direction: row; /* Горизонтальное расположение для десктопа */
+        max-width: 1200px;
+        width: 100%;
+        gap: 20px;
     }
 
     .igr {
@@ -441,27 +485,27 @@ p, a {
     }
 }
 
-@media (max-width: 480px) {
-    .igrushki h2{
-        font-size: 1.3em;
+
+@media (max-width: 1024px) {
+    .igrushki h2 {
+        font-size: 2rem; 
     }
+
     .items {
-        gap: 10px; 
+        gap: 20px; 
+        justify-content: space-around;  /* элементы по центру контейнера */
     }
 
     .igr {
-        width: 200px; /* мень размер карт */
+        width: 220px; /* меньш ширину карт */
     }
 
     .igr img {
-        max-width: 200px; /* мен изобр */
-    }
-
-    .igr button {
-        font-size: 14px; /* мень размер текста на кнопке */
-        padding: 6px 12px;
+        max-width: 220px; /* меньш размер изобр */
     }
 }
+
+
 
 .technologies {
     background-color: #f5d3d3;
@@ -469,6 +513,7 @@ p, a {
     width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
+    padding: 10px 20px;
   }
   
   .section-title {
@@ -481,7 +526,7 @@ p, a {
   /* Сетка карточек */
   .tech-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Три столбца в первом ряду */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
     gap: 40px;
     max-width: 1200px;  
     margin: 0 auto;
@@ -496,6 +541,10 @@ p, a {
     padding: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Вертикальное выравнивание элементов */
+    justify-content: space-between;
+   
   }
   
   .tech-card:hover {
@@ -504,8 +553,9 @@ p, a {
   }
   /*картинки в грид*/
   .tech-icon {
-    width: 300px;
-    height: 300px;
+    width: 100%; /* Картинки подстраиваются под размер карточки */
+    max-width: 320px;
+    height: auto;
     border-radius: 8px;
     padding: 10px;
   }
@@ -521,46 +571,227 @@ p, a {
   
   /* текст на карточках */
   .tech-description {
-    background-color: #d2a691;
-    font-size: 1em;
+    background-color: #cda18d;
+    font-size: 20px;
     color: #3c2626;
     line-height: 1.4;
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
 
   }
   
   /* Адаптивность */
-@media (max-width: 1024px) {
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-}
 
-@media (max-width: 768px) {
+  @media (max-width: 480px) {
+
     .section-title {
-        font-size: 1.3em;
+        font-size: 1.8rem;
     }
+
     .tech-grid {
-        grid-template-columns: 1fr; 
+        gap: 15px; /* Еще меньшее расстояние между карточками */
     }
 
     .tech-card {
-        padding: 15px;  
+        padding: 8px; /* Уменьшаем отступы внутри карточки */
     }
 
     .tech-icon {
-        width: 200px; /* меньш размер иконок */
-        height: 200px;
+        
+        max-width: 320px;
+        padding: 0;
+      }
+    
+}
+
+  @media (max-width: 768px) {
+
+    .section-title {
+        font-size: 2rem;
     }
 
-    .tech-title {
-        font-size: 1.2rem; /* еньш размер заголовка на моб */
+    .tech-grid {
+        gap: 20px; /* Уменьшаем расстояние между карточками */
+    }    
+
+    .tech-icon {
+        max-width: 285px;
+        padding: 18px;
+      }
+}
+
+@media (max-width: 1024px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+    .tech-icon {
+        max-width: 295px;
+        padding: 10px;
+      }
+}
+
+
+
+/* Всплывающее окно */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Размытие заднего фона */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 80%;
+}
+
+.popup-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+ 
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 26px;
+    background-color: #442a18;
+    color: #ddcbcb;
+    border-radius: 5px;    
+    padding: 10px;
+    margin: 5px 25px;
+  }
+  
+
+
+/* Основной стиль меню */
+.main-nav {
+    /* background-color: #cda18d; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #b36e68;
+    position: fixed;
+    width: 100%;
+    z-index: 10; /* Поверх остального контента */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Легкая тень */
+}
+
+/* Убираем стандартные стили списка */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    width: 80%;
+    justify-content: space-around;
+}
+
+.main-nav li {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase; /* Верхний регистр для текста */
+}
+
+.main-nav ul li:last-child {
+    margin-right: 0;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Эффект плавного изменения */
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+    color: #fffbe0; /* Светлый оттенок текста */
+    transform: scale(1.1); /* Увеличение */
+}
+
+section {
+    padding-top: 80px; /* Учитываем высоту фиксированного меню */
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center; /* Центрирование изображений */
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background: #ffffff;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+.burger-menu-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Показ бургер-меню при открытии */
+.main-nav.active .burger-menu {
+    display: flex;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #b36e68;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 40%;
     }
 
-    .tech-description {
-        font-size: 0.9rem; /* еньш размер текста на моб */
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .main-nav.active ul {
+        display: flex;
     }
 }
+

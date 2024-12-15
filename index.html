@@ -8,9 +8,48 @@
 </head>
 
 <body>
+
+    <header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#shap">Главная</a></li>
+                <li><a href="#skat">Обо мне</a></li>
+                <li><a href="#igrushki">Творения</a></li>
+                <li><a href="#technologies">Материалы</a></li>
+            </ul>
+            <div class="burger-menu">
+                
+                <span></span>
+                <span></span>
+                <span></span>
+                <img src="img/icn.png" alt="Logo" class="burger-menu-logo">
+            </div>
+        </nav>
+    </header>
+    
+    
+    
+    
+    <!-- <nav class="main-menu">
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu-list">
+            <li><a href="#shap">Главная</a></li>
+            <li><a href="#skat">Обо мне</a></li>
+            <li><a href="#igrushki">Творения</a></li>
+            <li><a href="#technologies">Материалы</a></li>
+        </ul>
+        <div class="menu-photo">
+            <img src="img/shapka.jpg" alt="Фото меню">
+        </div>
+    </nav> -->
+    
     
 
-    <div class="shap">
+    <div class="shap" id="shap">
       <img src="shapka.jpg" class="shap-bg" alt="Шапка страницы">
       <div class="shap-container">
           <h1>Плюшевые игрушки с любовью</h1>
@@ -30,7 +69,7 @@
      
     
 
-    <section class="skat">
+    <section class="skat" id="skat">
         <h2>Обо мне</h2>
         <div class="biogr">
             <div class="photo-me">
@@ -49,7 +88,7 @@
     
 
     
-    <section class="igrushki">
+    <section class="igrushki" id="igrushki">
         <h2>Новые творения</h2>
         <div class="items">
             <div class="igr">
@@ -58,14 +97,14 @@
                 <p>Этого жирафика я подарила на рождение моей племянницы.
                     А сейчас девочка подрастает и с радостью играется с ним
                 </p>
-                <button>ПОДРОБНЕЕ</button>
+                <button onclick="showDetails('rafic')">ПОДРОБНЕЕ</button>
             </div>
             <div class="igr">
                 <img src="img/dino.jpg" alt="Игрушка">
                 <p>Цветочный Дино</p>
                 <p>Это моя первая игрушка, схему которой составляла я сама
                 </p>
-                <button>ПОДРОБНЕЕ</button>
+                <button onclick="showDetails('dino')">ПОДРОБНЕЕ</button>
             </div>
             <div class="igr">
                 <img src="img/ut.jpg" alt="Игрушка">
@@ -73,14 +112,23 @@
                 <p>Игрушка является моей последней работой. Уточка 
                     связана с любовью в подарок моей соседке. Она
                 была очень рада </p>
-                <button>ПОДРОБНЕЕ</button>
+                <button onclick="showDetails('duck')">ПОДРОБНЕЕ</button>
             </div>
         </div>
-    </section>
+    </section>  
+
+    <!-- Всплывающее окно -->
+<div id="popup" class="popup hidden">
+    <div class="popup-content">
+        <span class="close-btn" onclick="hideDetails()">✖</span>
+        <h3 id="popup-title"></h3>
+        <p id="popup-description"></p>
+        <img id="popup-image" src="" alt="Игрушка">
+    </div>
+</div>
 
 
-
-    <section class="technologies">
+    <section class="technologies" id="technologies">
         <h2 class="section-title">Материалы, которые я использую</h2>
         <div class="tech-grid">
           <div class="tech-card">
@@ -101,7 +149,7 @@
           <div class="tech-card">
             <img src="img/aks.png" alt="Мелочевка" class="tech-icon">
             <h3 class="tech-title">Аксесуары</h3>
-            <p class="tech-description">Чтобы игрушка была совсем милой, я ее дополняю специальными глазками, милыми украшениями, ресничками. С ними - она ну совсем как живая</p>
+            <p class="tech-description">Чтобы игрушка была совсем милой, я ее дополняю специальными глазками, милыми украшениями, ресничками.</p>
           </div>
           <div class="tech-card">
             <img src="img/igll.png" alt="Игла" class="tech-icon">
@@ -116,6 +164,7 @@
         </div>
       </section>
 
+      <script src="js/app.js"></script> 
 
    
 </body>
