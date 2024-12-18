@@ -28,8 +28,8 @@ function showDetails(toyId) {
         document.getElementById("popup-image").src = toy.image;
 
         popup.classList.remove("hidden");
-        popup.style.opacity = "1";
-        popup.style.visibility = "visible";
+        popup.style.opacity = "1"; // прозрачность
+        popup.style.visibility = "visible"; // отображение окна
     }
 }
 

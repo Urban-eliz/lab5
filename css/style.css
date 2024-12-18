@@ -595,10 +595,11 @@ p, a {
 
     .tech-card {
         padding: 8px; /* Уменьшаем отступы внутри карточки */
+        width: 80%;
     }
 
     .tech-icon {
-        
+        width: 92%; /* Картинки подстраиваются под размер карточки */
         max-width: 320px;
         padding: 0;
       }
@@ -618,7 +619,12 @@ p, a {
     .tech-icon {
         max-width: 285px;
         padding: 18px;
-      }
+    }
+
+    .tech-card {
+        width: 80%;
+    }
+      
 }
 
 @media (max-width: 1024px) {
@@ -630,7 +636,6 @@ p, a {
         padding: 10px;
       }
 }
-
 
 
 /* Всплывающее окно */
@@ -657,7 +662,7 @@ p, a {
 }
 
 .popup-content {
-    background: white;
+    background: #f5d3d3;
     padding: 20px;
     text-align: center;
     border-radius: 10px;
@@ -671,7 +676,6 @@ p, a {
     border-radius: 10px;
     margin-top: 10px;
 }
-
  
 .close-btn {
     position: absolute;
@@ -706,7 +710,7 @@ p, a {
 .main-nav ul {
     display: flex;
     list-style: none;
-    width: 80%;
+    width: 90%;
     justify-content: space-around;
 }
 
