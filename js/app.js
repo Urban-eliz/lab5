@@ -60,65 +60,55 @@ const reviewForm = document.getElementById('review-form');
 const reviewName = document.getElementById('review-name');
 const reviewInput = document.getElementById('review-input');
 
-const LOCAL_STORAGE_KEY = 'reviews'; // Ключ для хранения отзывов в LocalStorage
-
-// Загрузка отзывов из LocalStorage
-const loadReviews = () => {
-    const reviews = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
-    reviews.forEach((review) => addReviewToPage(review));
+// Загрузка отзывов с сервера
+const loadReviews = async () => {
+    try {
+        const response = await fetch('/reviews');
+        const reviews = await response.json();
+        reviews.forEach(({ name, review }) => addReviewToPage(name, review));
+    } catch (error) {
+        console.error('Ошибка загрузки отзывов:', error);
+    }
 };
 
 // Добавление отзыва на страницу
-const addReviewToPage = ({ name, text }) => {
+const addReviewToPage = (name, review) => {
     const reviewItem = document.createElement('div');
     reviewItem.className = 'review-item';
     reviewItem.innerHTML = `
         <p><strong>${name}</strong></p>
-        <p>${text}</p>
+        <p>${review}</p>
     `;
     reviewsContainer.appendChild(reviewItem);
 };
 
-// Сохранение отзыва в LocalStorage
-const saveReview = (review) => {
-    const reviews = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
-    reviews.push(review);
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(reviews));
-};
-
-// Обработчик отправки формы
-reviewForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Останавливаем стандартное поведение формы
+// Отправка нового отзыва
+reviewForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
 
     const name = reviewName.value.trim();
-    const text = reviewInput.value.trim();
+    const review = reviewInput.value.trim();
 
-    if (name && text) {
-        const review = { name, text };
+    if (!name || !review) return;
 
-        // Добавляем отзыв на страницу
-        addReviewToPage(review);
+    const newReview = { name, review };
 
-        // Сохраняем отзыв в LocalStorage
-        saveReview(review);
+    try {
+        const response = await fetch('/reviews', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview),
+        });
 
-        // Отправляем данные на getform.io
-        try {
-            const formData = new FormData(reviewForm);
-            await fetch(reviewForm.action, {
-                method: 'POST',
-                body: formData,
-            });
-        } catch (error) {
-            console.error('Ошибка отправки на getform.io:', error);
+        if (response.ok) {
+            addReviewToPage(name, review);
+            reviewName.value = '';
+            reviewInput.value = '';
         }
-
-        // Очищаем поля формы
-        reviewName.value = '';
-        reviewInput.value = '';
-        document.getElementById('review-email').value = '';
+    } catch (error) {
+        console.error('Ошибка отправки отзыва:', error);
     }
 });
 
-// Загрузка отзывов при старте страницы
+// Загрузка отзывов при загрузке страницы
 document.addEventListener('DOMContentLoaded', loadReviews);
