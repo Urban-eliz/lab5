@@ -21,6 +21,7 @@ p, a {
     margin: 0;
 }
 
+
 /* Шапка */
 .shap {
     position: relative;
@@ -39,10 +40,13 @@ p, a {
 .shap-bg {
     position: absolute;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    min-height: 150vh; /* Минимальная высота соответствует высоте окна */
+    object-fit: cover; /* Масштабирует фото, сохраняя пропорции */
+    object-position: center; /* Центрирование фото */
     opacity: 0.5;
     z-index: -1;
+    bottom: 0; /* Гарантируем, что фон доходит до низа */
 }
 
 .shap-container {
@@ -51,7 +55,7 @@ p, a {
     align-items: center;
     justify-content: center;
     max-width: 1200px;
-    width: 100%;
+    
     gap: 20px;
     /* text-align: justify; */
 }
@@ -121,7 +125,6 @@ p, a {
 .shap-image {
     flex: 1;
     text-align: center;
-    
 }
 
 .shap-image img {
@@ -133,65 +136,9 @@ p, a {
     margin: 0 auto;
 }
 
-@media (max-width: 480px) {
-    .shap-text {
-        padding: 0px 0px;
-    }
 
-    .shap h1 {
-        font-size: 8vw;
-        margin: 0 auto;
-        
-    }
 
-    .shap-text p {
-        font-size: 1rem;
-    }
 
-    .shap-btn {
-        font-size: 2em;
-        padding: 10px 15px;
-    }
-    .shap-image {
-        flex: 1;
-        text-align: center;
-        
-    }
-
-    .shap-image img {
-        display: none;
-        /* max-width: 70%; */
-    }
-}
-
-@media (max-width: 768px) {
-    .shap-text {
-        padding: 0px 0px;
-    }
-
-    .shap h1 {
-        font-size: 6vw;
-    }
-    .shap-content {
-        flex-direction: column;
-    }
-
-    .shap-text {
-        width: 100%;
-        text-align: center;
-        padding-right: 0;
-    }
-
-    .shap-image img {
-        display: none;
-        /* max-width: 80%; */
-    }
-
-    .shap-btn {
-        width: 100%;
-        max-width: none;
-    }
-}
 
 @media (max-width: 1024px) {
     .shap-text {
@@ -204,13 +151,14 @@ p, a {
     }
 
     .shap-image img {
-        display: none;
-        /* max-width: 30%; */
+        /* display: none; */
+        max-width: 50%;
     }
 
     .shap h1 {
         font-size: 5vw;
-        margin-bottom: 15px;/* */
+        padding: 8% 0px 0px 0px;
+        
     }
 
     .shap-text p {
@@ -220,6 +168,86 @@ p, a {
     .shap-text .shap-btn {
         max-width: 80%;
     }
+}
+
+@media (max-width: 768px) {
+    .shap{
+        height: auto;
+        
+    }
+    .shap-text {
+        padding: 0px 0px;
+    }
+
+    .shap h1 {
+        font-size: 6vw;
+        padding: 10% 0px 0px 0px;
+    }
+    .shap-content {
+        flex-direction: column;
+
+    }
+
+    .shap-text {
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .shap-image img {
+        /* display: none; */
+        max-width: 60%;
+        margin-bottom: 20px;
+    }
+
+    .shap-btn {
+        width: 100%;
+        max-width: none;
+        padding: 0px 70px; 
+    }
+}
+
+@media (max-width: 480px) {
+
+    .shap-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Отступ между текстом и кнопкой */
+    width: 100%; /* Гарантируем, что содержимое займет всю ширину */
+    max-width: 1100px; /* Ограничение максимальной ширины */
+    }
+
+    .shap-text {
+        flex: 1; /* Гибкий размер для текста */
+        width: 100%;
+        text-align: left; /* Выравнивание текста влево */
+        margin: 0;
+    }
+
+    .shap h1 {
+        font-size: 8vw;
+        padding: 20% 0px 10px 0px;
+    }
+    .shap-text p {
+        font-size: 1rem;
+    }
+
+    .shap-btn {
+        width: 100%;
+        max-width: none;
+        padding: 0px 30px; 
+    }
+
+    .shap-image {
+        align-self: center; /* Картинка остается по центру */
+    }
+
+    .shap-image img {
+        /* display: none; */
+        max-width: 70%;
+        margin-bottom: 30px;
+    }
+    
 }
 
 
@@ -400,7 +428,8 @@ p, a {
     max-width: 300px; /* Максимальная ширина для картинок */
     height: auto;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin: 10px; /* Одинаковый отступ со всех сторон */
+    
 }
 
 .igr p {
@@ -436,6 +465,44 @@ p, a {
 
 /* Адаптивность */
 
+@media (max-width: 1024px) {
+    .igrushki h2 {
+        font-size: 2rem; 
+    }
+
+    .items {
+        gap: 20px; 
+        justify-content: space-around;  /* элементы по центру контейнера */
+    }
+
+    .igr {
+        width: 220px; /* меньш ширину карт */
+    }
+
+    .igr img {
+        max-width: 220px; /* меньш размер изобр */
+    }
+}
+
+@media (max-width: 768px) {
+    .items {
+        position: relative;
+        flex-direction: row; /* Горизонтальное расположение для десктопа */
+        max-width: 1200px;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .igr {
+        width: 220px; /* меньш ширину карточек для моб*/
+    }
+
+    .igr img {
+        max-width: 220px; /* меньш размер карт */
+    }
+}
+
+
 @media (max-width: 480px) {
     .items {
         align-items: center;
@@ -467,53 +534,18 @@ p, a {
 
 }
 
-@media (max-width: 768px) {
-    .items {
-        position: relative;
-        flex-direction: row; /* Горизонтальное расположение для десктопа */
-        max-width: 1200px;
-        width: 100%;
-        gap: 20px;
-    }
-
-    .igr {
-        width: 220px; /* меньш ширину карточек для моб*/
-    }
-
-    .igr img {
-        max-width: 220px; /* меньш размер карт */
-    }
-}
 
 
-@media (max-width: 1024px) {
-    .igrushki h2 {
-        font-size: 2rem; 
-    }
 
-    .items {
-        gap: 20px; 
-        justify-content: space-around;  /* элементы по центру контейнера */
-    }
-
-    .igr {
-        width: 220px; /* меньш ширину карт */
-    }
-
-    .igr img {
-        max-width: 220px; /* меньш размер изобр */
-    }
-}
 
 
 
 .technologies {
     background-color: #f5d3d3;
-    padding: 50px 20px;
     width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 20px;
   }
   
   .section-title {
@@ -527,24 +559,26 @@ p, a {
   .tech-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
-    gap: 40px;
-    max-width: 1200px;  
+    gap: 20px;
+    max-width: 1200px; /* Ограничение ширины секции */
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
+    /* 
+    justify-content: center;  */
   }
   
   .tech-card {
     background-color: #cda18d;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
-    flex-direction: column; /* Вертикальное выравнивание элементов */
-    justify-content: space-between;
-   
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Учет padding в размерах */
   }
   
   .tech-card:hover {
@@ -554,88 +588,134 @@ p, a {
   /*картинки в грид*/
   .tech-icon {
     width: 100%; /* Картинки подстраиваются под размер карточки */
-    max-width: 320px;
+    /* max-width: 350px; */
     height: auto;
     border-radius: 8px;
-    padding: 10px;
+    margin: 0; /* Убираем внешние отступы */
+    flex-shrink: 0; /* Гарантируем, что картинка не будет уменьшаться */
   }
   
   /* заголовки карточек */
   .tech-title {
     font-size: 1.5em;
     color: #3c2626;
-    margin: 10px 0 20px 0; /* Отступы: сверху 20px, снизу 10px */
-    text-align: center; 
+    margin: 10px 0; /* Отступы: сверху 20px, снизу 10px */
     line-height: 1.2;
   }
   
   /* текст на карточках */
   .tech-description {
-    background-color: #cda18d;
+    font-size: 1.3rem;
+    color: #3c2626;
+    line-height: 1.4;
+    margin-top: 10px;
+    /* background-color: #cda18d;
     font-size: 20px;
     color: #3c2626;
     line-height: 1.4;
     padding: 10px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
 
   }
   
   /* Адаптивность */
 
-  @media (max-width: 480px) {
-
+  @media (max-width: 1024px) {
     .section-title {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
-
-    .tech-grid {
-        gap: 15px; /* Еще меньшее расстояние между карточками */
-    }
-
-    .tech-card {
-        padding: 8px; /* Уменьшаем отступы внутри карточки */
-        width: 80%;
-    }
-
-    .tech-icon {
-        width: 92%; /* Картинки подстраиваются под размер карточки */
-        max-width: 320px;
-        padding: 0;
-      }
-    
+    /* .tech-icon {
+        max-width: 300px;
+        padding: 10px;
+      } */
+       
 }
 
-  @media (max-width: 768px) {
+
+@media (max-width: 768px) {
+    /* .technologies{
+        padding: 2% 3% 2% 4%;
+        
+    } */
 
     .section-title {
         font-size: 2rem;
     }
 
     .tech-grid {
-        gap: 20px; /* Уменьшаем расстояние между карточками */
+        gap: 15px; /* Уменьшаем расстояние между карточками */
     }    
+    .tech-card {
+        padding: 16px; /* Уменьшение внутреннего отступа для компактности */
+      }
+    
+      .tech-icon {
+        max-width: 90%; /* Картинка немного меньше, но отступы остаются равными */
+      }
 
-    .tech-icon {
-        max-width: 285px;
+    /* .tech-icon {
         padding: 18px;
+        width: 92%;
     }
 
     .tech-card {
         width: 80%;
-    }
-      
+    } */
 }
 
-@media (max-width: 1024px) {
-    .section-title {
-        font-size: 2.5rem;
+
+@media (max-width: 480px) {
+    .tech-grid {
+        display: flex; /* Изменяем на flexbox */
+        flex-direction: column; /* Карточки выстраиваются вертикально */
+        align-items: center; /* Центрируем карточки */
+        justify-content: center; /* Центрируем карточки */
+        gap: 10px; /* Расстояние между карточками */
     }
+
+    .tech-card {
+        padding: 10px; /* Уменьшаем внутренние отступы */
+        width: 90%; /* Карточка занимает 90% ширины экрана */
+        margin: 10px auto; /* Центрируем карточки */
+        align-items: center;
+    }
+
     .tech-icon {
-        max-width: 295px;
-        padding: 10px;
-      }
+        max-width: 80%; /* Уменьшаем размер изображения внутри карточки */
+        margin: 10px; /* Равные отступы вокруг изображения */
+    }
+
+    .tech-card button {
+        padding: 6px 12px; /* Уменьшаем размеры кнопки */
+    }
 }
+
+/* Убираем лишние отступы вокруг изображения для адаптивности */
+.tech-icon {
+    display: block; /* Убедимся, что изображение ведет себя как блочный элемент */
+    margin: 10px auto; /* Равномерные отступы вокруг изображения */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Скругленные углы */
+}
+
+
+
+
+/* Стили для экранов больше 1024px
+@media (min-width: 1025px) {
+    .tech-grid {
+        gap: 40px;
+    }
+    .tech-card {
+        padding: 15px;
+    }
+
+    .tech-icon{
+        width: 100%;
+    }
+} */
 
 
 /* Всплывающее окно */
@@ -704,6 +784,7 @@ p, a {
     width: 100%;
     z-index: 10; /* Поверх остального контента */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    
 }
 
 /* Убираем стандартные стили списка */
@@ -728,7 +809,7 @@ p, a {
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 27px 120px;
     border-radius: 5px;
     transition: all 0.3s ease; /* Эффект плавного изменения */
 }
@@ -750,6 +831,7 @@ section {
     cursor: pointer;
     align-items: center; /* Центрирование изображений */
     display: none;
+    
 }
 
 .burger-menu span {
@@ -782,13 +864,21 @@ section {
         flex-direction: column;
         background-color: #b36e68;
         position: absolute;
-        top: 50px;
+        top: 0; /* Начинаем сверху */
         left: 0;
-        width: 40%;
+        height: 100vh; /* Занимаем всю длину экрана */
+        width: 40%; /* Занимаем всю ширину экрана */
+        padding-top: 50px;
     }
 
     .main-nav ul li {
         margin: 10px 0;
+        text-align: center; /* Центрируем текст */
+    }
+
+    .main-nav ul li a {
+        font-size: 14px; /* Уменьшенный текст для мобильных */
+        padding: 10px; /* Уменьшенные отступы */
     }
 
     .burger-menu {
@@ -800,3 +890,156 @@ section {
     }
 }
 
+/* .feedback-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+.feedback-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #b36e68;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    border-color: #b36e68;
+    outline: none;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #b36e68;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #9f524b;
+} */
+
+
+.reviews {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    padding: 20px;
+    background-color: #f9f5f1;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h2 {
+    grid-column-start: 3;
+    text-align: center;
+    color: #b36e68;
+}
+
+#reviews-container {
+    grid-column: 1 / 3; grid-row: 2 / 6;
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+    max-height: 65%; /* Устанавливаем фиксированную высоту */
+}
+
+.review-item {
+    margin-bottom: 15px;
+    padding:5px;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    color: #333;
+}
+
+#review-form {
+    grid-column: 3 / 6; grid-row: 2 / 6;
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#review-name,
+#review-email,
+#review-input {
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+#review-form button {
+    background-color: #b36e68;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#review-form button:hover {
+    background-color: #9f524b;
+}
+
+@media (max-width: 480px) {
+    .reviews {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #review-form {
+        order: 1; /* Форма будет первой */
+        width: 100%; /* Растягиваем на всю ширину */
+        margin: 0;
+    }
+
+    #reviews-container {
+        order: 2; /* Отзывы будут вторыми */
+        width: 100%; /* Растягиваем на всю ширину */
+        max-height: 300px; /* Ограничиваем высоту */
+    }
+
+    .reviews h2 {
+        order: 0; /* Заголовок останется сверху */
+        text-align: center;
+    }
+}
