@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     const reviewsContainer = document.getElementById('reviews-container');
     const reviewForm = document.getElementById('review-form');
     const formMessage = document.getElementById('form-message');
@@ -115,4 +115,59 @@ async function loadReviews() {
 
     // Загрузка отзывов при загрузке страницы
     loadReviews();
+}); */
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const feedbackForm = document.getElementById('review-form');
+    const reviewsContainer = document.getElementById('reviews-container');
+    const formMessage = document.getElementById('form-message');
+
+    // Отображение закрепленных отзывов
+    const staticReviews = [
+        { name: 'Анна', review: 'Эти игрушки такие мягкие и милые. Сделаны очень качественно, нигде ничего не торчит, стежки аккуратные. Видно, что автор делал с любовью' },
+        { name: 'Иван', review: 'Игрушка замечательная. Дочка получила на день рождения зайчика. Она в полном восторге. Спасибо за такой классный подарок!' },
+        { name: 'Мария', review: 'Получить такой подарок на день рождения это круто. мне очень нравится творчество Лизы. Хочется пожелать продолжать творить чудо и нести прекрасное в этот мир' },
+    ];
+
+    function renderReviews(reviews) {
+        reviewsContainer.innerHTML = '';
+        reviews.forEach(({ name, review }) => {
+            const reviewItem = document.createElement('div');
+            reviewItem.className = 'review-item';
+            reviewItem.innerHTML = `
+                <p><strong>${name}</strong></p>
+                <p>${review}</p>
+            `;
+            reviewsContainer.appendChild(reviewItem);
+        });
+    }
+
+    // Отобразить предварительно добавленные отзывы
+    renderReviews(staticReviews);
+
+    // Отправка отзыва через Getform.io
+    feedbackForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Остановить стандартное поведение формы
+    
+        fetch('/proxy', {
+            method: 'POST',
+            body: new FormData(feedbackForm),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    formMessage.style.display = 'block'; // Показываем сообщение об успехе
+                    feedbackForm.reset(); // Очищаем форму
+                } else {
+                    alert('Ошибка при отправке. Попробуйте еще раз.');
+                }
+            })
+            .catch((error) => {
+                console.error('Ошибка:', error);
+                alert('Не удалось отправить сообщение. Проверьте соединение.');
+            });
+    });
+    
 });
+
+

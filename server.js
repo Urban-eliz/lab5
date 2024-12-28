@@ -1,4 +1,4 @@
-const cors = require('cors');
+/*const cors = require('cors');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -54,4 +54,40 @@ app.post('/reviews', (req, res) => {
 // Запуск сервера
 app.listen(PORT, () => {
     console.log(`Сервер запущен: http://localhost:${PORT}`);
+});
+*/
+
+
+const cors = require('cors');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+
+const app = express();
+const PORT = 3000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Прокси для Getform.io
+app.post('/proxy', async (req, res) => {
+    try {
+        const response = await fetch('hhttps://app.getform.io/forms/bxoopwla', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(req.body).toString(),
+        });
+
+        res.status(response.status).send(await response.text());
+    } catch (error) {
+        console.error('Ошибка проксирования:', error);
+        res.status(500).send('Ошибка сервера');
+    }
+});
+
+// Запуск сервера
+app.listen(PORT, () => {
+    console.log(`Сервер запущен на http://localhost:${PORT}`);
 });
