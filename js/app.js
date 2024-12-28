@@ -55,60 +55,122 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const reviewsContainer = document.getElementById('reviews-container');
-const reviewForm = document.getElementById('review-form');
-const reviewName = document.getElementById('review-name');
-const reviewInput = document.getElementById('review-input');
+// const reviewsContainer = document.getElementById('reviews-container');
+// const reviewForm = document.getElementById('review-form');
+// const reviewName = document.getElementById('review-name');
+// const reviewInput = document.getElementById('review-input');
 
-// Загрузка отзывов с сервера
-const loadReviews = async () => {
-    try {
-        const response = await fetch('/reviews');
-        const reviews = await response.json();
-        reviews.forEach(({ name, review }) => addReviewToPage(name, review));
-    } catch (error) {
-        console.error('Ошибка загрузки отзывов:', error);
-    }
-};
+// // Загрузка отзывов с сервера
+// const loadReviews = async () => {
+//     try {
+//         const response = await fetch('/reviews');
+//         const reviews = await response.json();
+//         reviews.forEach(({ name, review }) => addReviewToPage(name, review));
+//     } catch (error) {
+//         console.error('Ошибка загрузки отзывов:', error);
+//     }
+// };
 
-// Добавление отзыва на страницу
-const addReviewToPage = (name, review) => {
-    const reviewItem = document.createElement('div');
-    reviewItem.className = 'review-item';
-    reviewItem.innerHTML = `
-        <p><strong>${name}</strong></p>
-        <p>${review}</p>
-    `;
-    reviewsContainer.appendChild(reviewItem);
-};
+// // Добавление отзыва на страницу
+// const addReviewToPage = (name, review) => {
+//     const reviewItem = document.createElement('div');
+//     reviewItem.className = 'review-item';
+//     reviewItem.innerHTML = `
+//         <p><strong>${name}</strong></p>
+//         <p>${review}</p>
+//     `;
+//     reviewsContainer.appendChild(reviewItem);
+// };
 
-// Отправка нового отзыва
-reviewForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
+// // Отправка нового отзыва
+// reviewForm.addEventListener('submit', async (event) => {
+//     event.preventDefault();
 
-    const name = reviewName.value.trim();
-    const review = reviewInput.value.trim();
+//     const name = reviewName.value.trim();
+//     const review = reviewInput.value.trim();
 
-    if (!name || !review) return;
+//     if (!name || !review) return;
 
-    const newReview = { name, review };
+//     const newReview = { name, review };
 
-    try {
-        const response = await fetch('/reviews', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newReview),
-        });
+//     try {
+//         const response = await fetch('/reviews', {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify(newReview),
+//         });
 
-        if (response.ok) {
-            addReviewToPage(name, review);
-            reviewName.value = '';
-            reviewInput.value = '';
+//         if (response.ok) {
+//             addReviewToPage(name, review);
+//             reviewName.value = '';
+//             reviewInput.value = '';
+//         }
+//     } catch (error) {
+//         console.error('Ошибка отправки отзыва:', error);
+//     }
+// });
+
+// // Загрузка отзывов при загрузке страницы
+// document.addEventListener('DOMContentLoaded', loadReviews);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewsContainer = document.getElementById('reviews-container');
+
+    // Функция для загрузки отзывов с сервера
+    async function loadReviews() {
+        try {
+            const response = await fetch('/reviews');
+            if (response.ok) {
+                const reviews = await response.json();
+                reviews.forEach(({ name, review }) => {
+                    addReviewToPage(name, review);
+                });
+            }
+        } catch (error) {
+            console.error('Ошибка загрузки отзывов:', error);
         }
-    } catch (error) {
-        console.error('Ошибка отправки отзыва:', error);
     }
+
+    // Функция для добавления отзыва на страницу
+    function addReviewToPage(name, review) {
+        const reviewItem = document.createElement('div');
+        reviewItem.className = 'review-item';
+        reviewItem.innerHTML = `
+            <p><strong>${name}</strong></p>
+            <p>${review}</p>
+        `;
+        reviewsContainer.appendChild(reviewItem);
+    }
+
+    // Обработка формы отправки отзыва
+    document.getElementById('review-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const reviewData = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            review: formData.get('review')
+        };
+
+        try {
+            const response = await fetch('/reviews', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(reviewData)
+            });
+
+            if (response.ok) {
+                document.getElementById('form-message').style.display = 'block';
+                addReviewToPage(reviewData.name, reviewData.review);
+                e.target.reset(); // очищаем форму после успешной отправки
+            }
+        } catch (error) {
+            console.error('Ошибка отправки отзыва:', error);
+        }
+    });
+
+    // Загрузка отзывов при загрузке страницы
+    loadReviews();
 });
 
-// Загрузка отзывов при загрузке страницы
-document.addEventListener('DOMContentLoaded', loadReviews);

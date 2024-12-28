@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>igrushki_kruchkom</title>
-    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/style.css" >
 </head>
 
@@ -144,19 +144,35 @@
       </section>
 
       
-      <section class="reviews">
+      <!-- <section class="reviews">
         <h2>Отзывы</h2>
         <div id="reviews-container">
-            <!-- Отображение отзывов -->
+            
         </div>
         <form id="review-form" method="POST" action="https://getform.io/f/bwnnmmoa">
             <input type="text" name="name" id="review-name" placeholder="Ваше имя" required />
             <input type="email" name="email" id="review-email" placeholder="Ваш email" required />
             <textarea name="review" id="review-input" rows="4" placeholder="Напишите ваш отзыв..." required></textarea>
             <button type="submit">Отправить</button>
+            <p id="form-message" style="display:none; color: green;">Ваш отзыв успешно отправлен!</p>
         </form>
     </section>
-
+     -->
+    
+     <section class="reviews">
+        <h2>Отзывы</h2>
+        <div id="reviews-container">
+            <!-- Отображение отзывов -->
+        </div>
+        <form id="review-form">
+            <input type="text" name="name" id="review-name" placeholder="Ваше имя" required />
+            <input type="email" name="email" id="review-email" placeholder="Ваш email" required />
+            <textarea name="review" id="review-input" rows="4" placeholder="Напишите ваш отзыв..." required></textarea>
+            <button type="submit">Отправить</button>
+            <p id="form-message" style="display:none; color: green;">Ваш отзыв успешно отправлен!</p>
+        </form>
+    </section>
+    
     
     
     
