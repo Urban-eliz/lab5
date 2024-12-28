@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -5,14 +6,12 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 const REVIEWS_FILE = path.join(__dirname, 'reviews.json');
-const cors = require('cors');
 
+// Middleware
 app.use(cors());
-
-
-// Middleware для обработки JSON данных
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname)); // Отдает файлы из папки lab5
 
 // API для получения всех отзывов
 app.get('/reviews', (req, res) => {
@@ -21,8 +20,7 @@ app.get('/reviews', (req, res) => {
             console.error('Ошибка чтения файла:', err);
             return res.status(500).json({ error: 'Ошибка сервера' });
         }
-        const reviews = JSON.parse(data || '[]');
-        res.json(reviews);
+        res.json(JSON.parse(data || '[]'));
     });
 });
 
@@ -38,6 +36,7 @@ app.post('/reviews', (req, res) => {
             console.error('Ошибка чтения файла:', err);
             return res.status(500).json({ error: 'Ошибка сервера' });
         }
+
         const reviews = JSON.parse(data || '[]');
         const newReview = { name, email, review };
         reviews.push(newReview);
