@@ -809,8 +809,7 @@ p, a {
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
-    padding: 27px 120px;
-    border-radius: 5px;
+    padding: 27px 103px;
     transition: all 0.3s ease; /* Эффект плавного изменения */
 }
 
@@ -864,30 +863,33 @@ section {
         flex-direction: column;
         background-color: #b36e68;
         position: absolute;
-        top: 0; /* Начинаем сверху */
+        top: 30px; /* Начинаем сверху */
         left: 0;
         height: 100vh; /* Занимаем всю длину экрана */
-        width: 40%; /* Занимаем всю ширину экрана */
-        padding-top: 50px;
+        width: 40%; /* Занимаем ширину экрана */
     }
 
     .main-nav ul li {
-        margin: 10px 0;
+        margin: 0px;
         text-align: center; /* Центрируем текст */
+        margin-bottom: 20px;
     }
 
     .main-nav ul li a {
         font-size: 14px; /* Уменьшенный текст для мобильных */
         padding: 10px; /* Уменьшенные отступы */
+        
     }
 
     .burger-menu {
-        display: flex;
+        display: flex; 
     }
 
     .main-nav.active ul {
         display: flex;
     }
+
+    
 }
 
 /* .feedback-form {
