@@ -147,17 +147,25 @@ document.addEventListener('DOMContentLoaded', () => {
     renderReviews(staticReviews);
 
     // Отправка отзыва через Getform.io
-    feedbackForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Остановить стандартное поведение формы
+    document.addEventListener('DOMContentLoaded', () => {
+        const feedbackForm = document.getElementById('review-form');
+        const formMessage = document.getElementById('form-message');
     
-        fetch('/proxy', {
-            method: 'POST',
-            body: new FormData(feedbackForm),
-        })
+        feedbackForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Остановить стандартное поведение формы
+    
+            // Отправка данных формы через Fetch API
+            fetch('https://getform.io/f/bxoopwla', {
+                method: 'POST',
+                body: new FormData(feedbackForm),
+            })
             .then((response) => {
                 if (response.ok) {
-                    formMessage.style.display = 'block'; // Показываем сообщение об успехе
-                    feedbackForm.reset(); // Очищаем форму
+                    formMessage.style.display = 'block'; // Показать сообщение об успехе
+                    feedbackForm.reset(); // Очистить форму
+                    setTimeout(() => {
+                        formMessage.style.display = 'none'; // Скрыть сообщение через 3 секунды
+                    }, 3000);
                 } else {
                     alert('Ошибка при отправке. Попробуйте еще раз.');
                 }
@@ -166,7 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Ошибка:', error);
                 alert('Не удалось отправить сообщение. Проверьте соединение.');
             });
-    });
+        });
+    });  
+    
     
 });
 

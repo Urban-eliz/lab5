@@ -60,32 +60,41 @@ app.listen(PORT, () => {
 
 const cors = require('cors');
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
+const fetch = require('node-fetch'); // Убедитесь, что вы установили эту библиотеку: npm install node-fetch
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Прокси для Getform.io
 app.post('/proxy', async (req, res) => {
     try {
-        const response = await fetch('hhttps://app.getform.io/forms/bxoopwla', {
+        const formBody = new URLSearchParams(req.body).toString();
+        const response = await fetch('https://getform.io/f/bxoopwla', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(req.body).toString(),
+            body: formBody,
         });
 
-        res.status(response.status).send(await response.text());
+        if (!response.ok) {
+            throw new Error(`Ошибка запроса: ${response.statusText}`);
+        }
+
+        const responseBody = await response.text();
+        res.status(200).send(responseBody);
     } catch (error) {
         console.error('Ошибка проксирования:', error);
-        res.status(500).send('Ошибка сервера');
+        res.status(500).send('Ошибка на сервере.');
     }
 });
+
+// Статические файлы
+app.use(express.static('public'));
 
 // Запуск сервера
 app.listen(PORT, () => {
