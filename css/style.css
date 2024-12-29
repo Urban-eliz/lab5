@@ -834,7 +834,7 @@ section {
 }
 
 .burger-menu span {
-    width: 25px;
+    width: 25px;  /* размер  */
     height: 3px;
     background: #ffffff;
     margin: 3px 0;
